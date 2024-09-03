@@ -4,7 +4,7 @@
 
 ServerShout 是一款适用于 Bukkit/BungeeCord/Velocity 的跨服喊话与邀请插件。供了丰富的配置选项，兼容 PlaceholderAPI、LuckPerms 插件。支持多种消息格式，允许自定义频道和指令，以及消息屏蔽等功能。
 
-了解更多详细信息，请访问我们的[插件帖子](#)。
+了解更多详细信息，请访问我们的[插件帖子](https://www.minebbs.com/resources/9367/)。
 
 ## 构建
 
