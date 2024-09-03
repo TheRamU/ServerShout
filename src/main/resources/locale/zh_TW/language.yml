@@ -1,0 +1,84 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# 配置版本，請勿修改
+config-version: 1
+
+message:
+  prefix: "&e&lServerShout &r&f> "
+  plugin:
+    database-error: "&c資料庫出現錯誤! 請查看控制台."
+    database-disabled: "&c資料庫未啟用，無法使用此功能!"
+  update-available: "&eServerShout &a有新版本可用! 你目前落後 &f{2} &a個版本. 下載地址: &b&n{3}&r"
+  command:
+    unknown: "&c未知指令! 使用 &f/{0} help &c查看幫助."
+    parameter-error: "&c參數錯誤! 使用 &f/{0} help &c查看幫助."
+    no-permission: "&c你沒有使用此指令的權限!"
+    not-player: "&c你不是一名玩家!"
+    token-not-found: "&c代幣 &f{0} &c不存在!"
+    invalid-amount: "&c數量必須是正整數!"
+  commands:
+    help:
+      usage: "&e/{0} help &7- &f顯示幫助資訊"
+    reload:
+      usage: "&e/{0} reload &7- &f重載配置檔"
+      success: "&a配置檔重載完成!"
+    token-create:
+      usage: "&e/{0} token create <名稱> &7- &f創建新代幣"
+      success: "&a代幣 &f{0} &a創建成功!"
+      invalid-name: "&c代幣名稱只能包含大寫字母、數字和底線!"
+      name-too-long: "&c代幣名稱不能超過 &f16 &c個字元!"
+      already-exists: "&c代幣 &f{0} &c已存在!"
+      failed: "&c代幣 &f{0} &c創建失敗!"
+    token-delete:
+      usage: "&e/{0} token delete <名稱> &7- &f刪除代幣"
+      success: "&a代幣 &f{0} &a刪除成功!"
+      failed: "&c代幣 &f{0} &c刪除失敗!"
+      confirm: "&c確定要刪除代幣 &f{1} &c嗎？這可能導致玩家數據丟失。若確定，請輸入 &f/{0} token delete {1} confirm"
+    token-list:
+      usage: "&e/{0} token list &7- &f列出所有代幣"
+      list-header: "&a代幣列表："
+      empty: "&c沒有添加任何代幣!"
+    balance-get:
+      usage: "&e/{0} balance get <玩家> <代幣> &7- &f查看玩家的代幣數量"
+      success: "&a玩家 &f{0} &a的代幣 &f{1} &a數量為 &f{2}"
+    balance-set:
+      usage: "&e/{0} balance set <玩家> <代幣> <數量> &7- &f設置玩家的代幣數量"
+      success: "&a已將玩家 &f{0} &a的代幣 &f{1} &a數量設置為 &f{2}"
+    balance-give:
+      usage: "&e/{0} balance give <玩家> <代幣> <數量> &7- &f給予玩家代幣"
+      success: "&a已給予玩家 &f{0} &a代幣 &f{1} &a數量 &f{2} &a個，當前總數為 &f{3}"
+    balance-take:
+      usage: "&e/{0} balance take <玩家> <代幣> <數量> &7- &f扣除玩家的代幣"
+      success: "&a已扣除玩家 &f{0} &a代幣 &f{1} &a數量 &f{2} &a個，當前總數為 &f{3}"
+      not-enough: "&c玩家 &f{0} &c的代幣 &f{1} &c數量不足!"
+    migrate:
+      confirm: "&c確定要遷移數據嗎？這可能導致現有數據受到舊版本數據影響。若確定，請輸入 &f/{0} migrate {1} confirm"
+      table-not-found: "&c舊版本數據表不存在!"
+      success: "&a數據遷移成功! 共遷移 &f{0} &a條數據."
+  shout:
+    empty: "&c消息不能為空!"
+    token-not-enough: "&c你的代幣不足 &f{1} &c個!"
+    cooldown: "&c請等待 &f{0} &c秒後再次使用!"
+    success: "&a消息已發送，剩餘代幣數量為 &f{1}"
+    success-free: "&a消息已發送!"
+    timeout: "&c消息發送超時!"
+  join:
+    expired: "&c該信息已過期!"
+    illegal-server: "&c該信息不適用於當前伺服器!"
+    same-server: "&c你已經在該伺服器中!"
+  mute:
+    selector: |
+      &f屏蔽範圍：
+      &f
+      &f  BUTTON(MUTE_PLAYER,"&8[&f&n屏蔽玩家&8]","&f點擊屏蔽")  BUTTON(MUTE_CHANNEL,"&8[&f&n屏蔽頻道&8]","&f點擊屏蔽")
+      &f
+      &f  BUTTON(MUTE_GLOBAL,"&8[&f&n所有頻道&8]","&f點擊屏蔽")  BUTTON(UNMUTE,"&8[&c&n取消屏蔽&8]","&c點擊取消屏蔽")
+    player: "&a玩家 &f{0} &a已被屏蔽! 重新加入伺服器可取消屏蔽狀態."
+    channel: "&a頻道 &f{0} &a已被屏蔽! 重新加入伺服器可取消屏蔽狀態."
+    global: "&a所有頻道已被屏蔽! 重新加入伺服器可取消屏蔽狀態."
+    unmute: "&a已取消所有屏蔽."
+    self: "&c你不能屏蔽自己!"

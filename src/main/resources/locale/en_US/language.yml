@@ -1,0 +1,84 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# Configuration version, do not modify
+config-version: 1
+
+message:
+  prefix: "&e&lServerShout &r&f> "
+  plugin:
+    database-error: "&cA database error occurred! Please check the console."
+    database-disabled: "&cDatabase is not enabled, this feature cannot be used!"
+  update-available: "&eServerShout &aA new version is available! You are &f{2} &aversions behind. Download link: &b&n{3}&r"
+  command:
+    unknown: "&cUnknown command! Use &f/{0} help &cto get help."
+    parameter-error: "&cParameter error! Use &f/{0} help &cto get help."
+    no-permission: "&cYou do not have permission to use this command!"
+    not-player: "&cYou are not a player!"
+    token-not-found: "&cToken &f{0} &cnot found!"
+    invalid-amount: "&cThe amount must be a positive integer!"
+  commands:
+    help:
+      usage: "&e/{0} help &7- &fGet help"
+    reload:
+      usage: "&e/{0} reload &7- &fReload configuration"
+      success: "&aConfiguration reloaded successfully!"
+    token-create:
+      usage: "&e/{0} token create <name> &7- &fCreate new token"
+      success: "&aToken &f{0} &acreated successfully!"
+      invalid-name: "&cToken name can only contain uppercase letters, numbers, and underscores!"
+      name-too-long: "&cToken name cannot exceed &f16 &ccharacters!"
+      already-exists: "&cToken &f{0} &calready exists!"
+      failed: "&cFailed to create token &f{0}!"
+    token-delete:
+      usage: "&e/{0} token delete <name> &7- &fDelete token"
+      success: "&aToken &f{0} &adeleted successfully!"
+      failed: "&cFailed to delete token &f{0}!"
+      confirm: "&cAre you sure you want to delete token &f{1}? This may lead to loss of player data. If sure, type &f/{0} token delete {1} confirm"
+    token-list:
+      usage: "&e/{0} token list &7- &fList all tokens"
+      list-header: "&aToken list:"
+      empty: "&cNo tokens have been added!"
+    balance-get:
+      usage: "&e/{0} balance get <PLAYER> <TOKEN> &7- &fCheck player token balance"
+      success: "&aPlayer &f{0}&a token &f{1} &abalance is &f{2}"
+    balance-set:
+      usage: "&e/{0} balance set <PLAYER> <TOKEN> <AMOUNT> &7- &fSet player token balance"
+      success: "&aSet player &f{0}&a token &f{1} &abalance to &f{2}"
+    balance-give:
+      usage: "&e/{0} balance give <PLAYER> <TOKEN> <AMOUNT> &7- &fGive tokens to player"
+      success: "&aGave player &f{0} &a&f{2} &atokens of &f{1}, &atotal now is &f{3}"
+    balance-take:
+      usage: "&e/{0} balance take <PLAYER> <TOKEN> <AMOUNT> &7- &fTake tokens from player"
+      success: "&aTook &f{2} &atokens of &f{1} &afrom player &f{0}, &atotal now is &f{3}"
+      not-enough: "&cPlayer &f{0} &cdoes not have enough tokens of &f{1}!"
+    migrate:
+      confirm: "&cAre you sure you want to migrate data? This may affect existing data with old version data. If sure, type &f/{0} migrate {1} confirm"
+      table-not-found: "&cOld version data table not found!"
+      success: "&aData migration successful! A total of &f{0} &arecords migrated."
+  shout:
+    empty: "&cMessage cannot be empty!"
+    token-not-enough: "&cYou do not have enough tokens of &f{1}!"
+    cooldown: "&cPlease wait &f{0} &cseconds before using again!"
+    success: "&aMessage sent, remaining tokens: &f{1}"
+    success-free: "&aMessage sent!"
+    timeout: "&cMessage sending timed out!"
+  join:
+    expired: "&cThis information has expired!"
+    illegal-server: "&cThis information is not applicable to the current server!"
+    same-server: "&cYou are already on this server!"
+  mute:
+    selector: |
+      &fMute options:
+      &f
+      &f  BUTTON(MUTE_PLAYER,"&8[&f&nMUTE PLAYER&8]","&fClick to mute")  BUTTON(MUTE_CHANNEL,"&8[&f&nMUTE CHANNEL&8]","&fClick to mute")
+      &f
+      &f  BUTTON(MUTE_GLOBAL,"&8[&f&nALL CHANNELS&8]","&fClick to mute")  BUTTON(UNMUTE,"&8[&c&nUNMUTE&8]","&cClick to unmute")
+    player: "&aPlayer &f{0} &ahas been muted! Rejoin the server to unmute."
+    channel: "&aChannel &f{0} &ahas been muted! Rejoin the server to unmute."
+    global: "&aAll channels have been muted! Rejoin the server to unmute."
+    unmute: "&aAll mutes have been removed."
+    self: "&cYou cannot mute yourself!"

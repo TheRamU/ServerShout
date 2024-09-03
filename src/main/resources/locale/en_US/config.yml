@@ -1,0 +1,38 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# Configuration version, do not modify
+config-version: 2
+
+# Update check settings
+update-check:
+  enabled: true
+  # Notify online admin players if a new version is available
+  notify: true
+
+# MySQL database configuration
+database:
+  # Whether to enable the database
+  # If disabled, players' tokens will not be taken, and they can send messages without restrictions
+  enabled: false
+
+  # Basic database settings
+  host: 'localhost'
+  port: 3306
+  database: 'servershout'
+  username: 'root'
+  password: 'root'
+
+  options: 'useSSL=false'
+  table-prefix: 'servershout_'
+
+  # Connection pool settings
+  pool:
+    max-size: 10
+    min-idle: 2
+    max-lifetime: 1800000
+    connection-timeout: 30000
+    idle-timeout: 600000

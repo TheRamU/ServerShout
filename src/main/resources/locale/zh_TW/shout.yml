@@ -1,0 +1,111 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# 配置版本，請勿修改
+config-version: 1
+
+# 全域配置
+global:
+  # 伺服器名稱對應
+  server-map:
+    'lobby': '大廳'
+    'survival': '生存'
+    'bedwars': '起床戰爭'
+
+  # 伺服器列表
+  server-list:
+    # 列表模式
+    # whitelist: 白名單模式，僅允許列表中的伺服器發送/接收訊息
+    # blacklist: 黑名單模式，僅禁止列表中的伺服器發送/接收訊息
+    mode: blacklist
+    # 伺服器列表，在黑名單模式下，以下伺服器無法發送/接收訊息
+    servers:
+      - 'login'
+
+# 喊話頻道配置，可以添加多個自定義頻道
+channels:
+  SHOUT_CHANNEL:
+    enabled: true
+    # 訊息前綴
+    chat-prefix: '!'
+    # 發送訊息所需的權限
+    permission: ''
+
+    # 是否允許發送空訊息，即玩家只發送 '!'
+    allow-empty-message: false
+
+    # 訊息發送所需的代幣
+    # 如果代幣數量為 0，則不扣除代幣，玩家可以無限發送
+    # 預設的代幣類型有：SHOUT, INVITE，可透過指令 /ss token 進行管理
+
+    # 發送完整訊息時扣除的代幣數量，格式：代幣類型:數量
+    token-cost-full: SHOUT:1
+
+    # 發送空訊息時扣除的代幣數量
+    token-cost-empty: SHOUT:1
+
+    # 是否向同一伺服器的玩家發送訊息
+    # 如果為 false，則只向其他伺服器的玩家發送訊息，發送者本人不受影響
+    local-broadcast: true
+
+    # 允許發送和接收訊息的伺服器列表
+    # 發送者只能在 sender-server-list 列表中的伺服器發送訊息，
+    # 接收者只能在 receiver-server-list 列表中的伺服器接收訊息。
+    # 如果列表為空，則不限制。
+    # mode：
+    #   whitelist: 白名單模式，僅允許列表中的伺服器發送/接收訊息
+    #   blacklist: 黑名單模式，僅禁止列表中的伺服器發送/接收訊息
+    sender-server-list:
+      mode: whitelist
+      servers: [ ]
+    receiver-server-list:
+      mode: whitelist
+      servers: [ ]
+
+    # 冷卻時間（秒）
+    cooldown: 60
+
+    # 訊息的有效時間（秒），超過該時間的訊息將無法使用"加入"和"屏蔽"按鈕
+    expiration: 300
+
+    # 訊息格式設定
+    # 支援 LuckPerms Meta 變數，如 {luckperms_meta_prefix}
+
+    # 空訊息格式
+    format-empty: [ ]
+    # 完整訊息格式
+    format-full:
+      - '&7[&b全服喊話&7]&7[&e{server}&7]BUTTON(MUTE,"&f{player}","&7點擊屏蔽")&f: {message}'
+
+  INVITE_CHANNEL:
+    enabled: true
+    chat-prefix: '/invite '
+    permission: ''
+    allow-empty-message: true
+    token-cost-full: INVITE:2
+    token-cost-empty: INVITE:1
+    local-broadcast: true
+    sender-server-list:
+      mode: whitelist
+      servers: [ ]
+    receiver-server-list:
+      mode: whitelist
+      servers: [ ]
+    cooldown: 60
+    expiration: 300
+    format-empty:
+      - ''
+      - '&f 玩家 &e{player} &f邀請大家加入 &e{server} &f(&e{server_players}&f在線)'
+      - ''
+      - ' BUTTON(JOIN,"&8[&a&n點擊加入&8]","&a點擊加入")  BUTTON(MUTE,"&8[&7&n點擊屏蔽&8]","&7點擊屏蔽")'
+      - ''
+    format-full:
+      - ''
+      - '&f 玩家 &e{player} &f邀請大家加入 &e{server} &f(&e{server_players}&f在線)'
+      - '&f 資訊: &e{message}'
+      - ''
+      - ' BUTTON(JOIN,"&8[&a&n點擊加入&8]","&a點擊加入")  BUTTON(MUTE,"&8[&7&n點擊屏蔽&8]","&7點擊屏蔽")'
+      - ''

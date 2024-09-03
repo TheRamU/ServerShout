@@ -1,0 +1,110 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# Configuration version, do not modify
+config-version: 1
+
+# Global configuration
+global:
+  # Server name mapping
+  server-map:
+    'lobby': 'Lobby'
+    'survival': 'Survival'
+    'bedwars': 'Bedwars'
+
+  server-list:
+    # List mode
+    # whitelist: Whitelist mode, only allows servers in the list to send/receive messages
+    # blacklist: Blacklist mode, prohibits servers in the list from sending/receiving messages
+    mode: blacklist
+    # Server list, in blacklist mode, the following servers cannot send/receive messages
+    servers:
+      - 'login'
+
+# Shout channel configuration, you can add multiple custom channels
+channels:
+  SHOUT_CHANNEL:
+    enabled: true
+    # Chat message prefix
+    chat-prefix: '!'
+    # Permission required to send messages
+    permission: ''
+
+    # Allow sending empty messages, i.e., the player only sends '!'
+    allow-empty-message: false
+
+    # Tokens required to send messages
+    # If the number of tokens is 0, tokens are not deducted, and players can send messages indefinitely
+    # Default token types are: SHOUT, INVITE, can be managed via the command /ss token
+
+    # Tokens deducted for sending a full message, format: TokenType:Amount
+    token-cost-full: SHOUT:1
+
+    # Tokens deducted for sending an empty message
+    token-cost-empty: SHOUT:1
+
+    # Whether to send messages to players on the same server
+    # If false, messages are only sent to players on other servers, the sender is not affected
+    local-broadcast: true
+
+    # List of servers allowed to send and receive messages
+    # The sender can only send messages from servers in the sender-server-list.
+    # The receiver can only receive messages on servers in the receiver-server-list.
+    # If the list is empty, there is no restriction.
+    # mode:
+    #   whitelist: Whitelist mode, only allows servers in the list to send/receive messages
+    #   blacklist: Blacklist mode, prohibits servers in the list from sending/receiving messages
+    sender-server-list:
+      mode: whitelist
+      servers: [ ]
+    receiver-server-list:
+      mode: whitelist
+      servers: [ ]
+
+    # Cooldown time (seconds)
+    cooldown: 60
+
+    # Message expiration time (seconds), messages beyond this time cannot use JOIN and MUTE buttons
+    expiration: 300
+
+    # Message Format Settings
+    # Supports LuckPerms Meta variables, such as {luckperms_meta_prefix}
+
+    # Format for empty messages
+    format-empty: [ ]
+    # Format for full messages
+    format-full:
+      - '&7[&bShout&7]&7[&e{server}&7]BUTTON(MUTE,"&f{player}","&7Click to Mute")&f: {message}'
+
+  INVITE_CHANNEL:
+    enabled: true
+    chat-prefix: '/invite '
+    permission: ''
+    allow-empty-message: true
+    token-cost-full: INVITE:2
+    token-cost-empty: INVITE:1
+    local-broadcast: true
+    sender-server-list:
+      mode: whitelist
+      servers: [ ]
+    receiver-server-list:
+      mode: whitelist
+      servers: [ ]
+    cooldown: 60
+    expiration: 300
+    format-empty:
+      - ''
+      - '&f Player &e{player} &finvites you to join &e{server} &f(&e{server_players}&f online)'
+      - ''
+      - ' BUTTON(JOIN,"&8[&a&nCLICK TO JOIN&8]","&aClick to join")  BUTTON(MUTE,"&8[&7&nCLICK TO MUTE&8]","&7Click to mute")'
+      - ''
+    format-full:
+      - ''
+      - '&f &e{player} &finvites you to join &e{server} &f(&e{server_players}&f online)'
+      - '&f Message: &e{message}'
+      - ''
+      - ' BUTTON(JOIN,"&8[&a&nCLICK TO JOIN&8]","&aClick to join")  BUTTON(MUTE,"&8[&7&nCLICK TO MUTE&8]","&7Click to mute")'
+      - ''

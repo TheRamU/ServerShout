@@ -1,0 +1,38 @@
+#
+# ServerShout v2 by TheRamU
+#
+# Website: https://github.com/TheRamU/ServerShout
+#
+
+# 配置版本，請勿修改
+config-version: 2
+
+# 更新檢查相關設定
+update-check:
+  enabled: true
+  # 如果有新版本可用，是否通知線上的管理員
+  notify: true
+
+# MySQL 資料庫配置
+database:
+  # 是否啟用資料庫
+  # 如果禁用，則不扣除玩家的代幣，玩家可以無限制發送訊息
+  enabled: false
+
+  # 資料庫基礎配置
+  host: 'localhost'
+  port: 3306
+  database: 'servershout'
+  username: 'root'
+  password: 'root'
+
+  options: 'useSSL=false'
+  table-prefix: 'servershout_'
+
+  # 連接池配置
+  pool:
+    max-size: 10
+    min-idle: 2
+    max-lifetime: 1800000
+    connection-timeout: 30000
+    idle-timeout: 600000

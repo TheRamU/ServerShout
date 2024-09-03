@@ -1,0 +1,5 @@
+name: ServerShout
+main: io.github.theramu.servershout.bungee.ServerShoutBungeePlugin
+version: ${project_version}
+author: TheRamU
+website: https://github.com/TheRamU/ServerShout

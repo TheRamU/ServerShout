@@ -1,0 +1,34 @@
+name: ServerShout
+main: io.github.theramu.servershout.bukkit.ServerShoutBukkitPlugin
+version: ${project_version}
+author: TheRamU
+website: https://github.com/TheRamU/ServerShout
+api-version: 1.13
+folia-supported: true
+softdepend: [ PlaceholderAPI ]
+
+commands:
+  servershout:
+    aliases: [ ss ]
+
+permissions:
+  servershout.help:
+    default: op
+  servershout.reload:
+    default: op
+  servershout.token.list:
+    default: op
+  servershout.token.create:
+    default: op
+  servershout.token.delete:
+    default: op
+  servershout.balance.get:
+    default: op
+  servershout.balance.set:
+    default: op
+  servershout.balance.give:
+    default: op
+  servershout.balance.take:
+    default: op
+  servershout.migrate:
+    default: op
