@@ -27,14 +27,14 @@ message:
       usage: "&e/{0} reload &7- &fReload configuration"
       success: "&aConfiguration reloaded successfully!"
     token-create:
-      usage: "&e/{0} token create <name> &7- &fCreate new token"
+      usage: "&e/{0} token create <NAME> &7- &fCreate new token"
       success: "&aToken &f{0} &acreated successfully!"
       invalid-name: "&cToken name can only contain uppercase letters, numbers, and underscores!"
       name-too-long: "&cToken name cannot exceed &f16 &ccharacters!"
       already-exists: "&cToken &f{0} &calready exists!"
       failed: "&cFailed to create token &f{0}!"
     token-delete:
-      usage: "&e/{0} token delete <name> &7- &fDelete token"
+      usage: "&e/{0} token delete <NAME> &7- &fDelete token"
       success: "&aToken &f{0} &adeleted successfully!"
       failed: "&cFailed to delete token &f{0}!"
       confirm: "&cAre you sure you want to delete token &f{1}? This may lead to loss of player data. If sure, type &f/{0} token delete {1} confirm"
