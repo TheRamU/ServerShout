@@ -24,7 +24,7 @@ subprojects {
     }
 
     dependencies {
-        implementation("io.github.theramu:dependency-loader:1.0.1")
+        implementation("io.github.theramu:dependency-loader:1.0.2")
         implementation("org.bstats:bstats-bukkit:3.0.3")
         implementation("org.bstats:bstats-bungeecord:3.0.3")
         implementation("org.bstats:bstats-velocity:3.0.3")

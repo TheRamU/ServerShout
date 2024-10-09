@@ -277,26 +277,24 @@ class ShoutChannelService {
     private fun startTimer() {
         timerTask?.cancel()
         timerTask = platform.scheduler.runAsync({
+            val messagesToProcess = mutableListOf<ChannelMessage>()
             lock.withLock {
-                val currentTime = System.currentTimeMillis()
-                val iter = messageQueue.iterator()
-                while (iter.hasNext()) {
-                    val message = iter.next()
-                    if (currentTime - message.timestamp > 10000) {
-                        iter.remove()
-                        if (message.sender.isOnline()) {
-                            message.sender.sendLanguageMessage("message.shout.timeout")
-                        }
-                        continue
-                    }
-                    try {
-                        // 处理消息时不加锁
-                        lock.unlock()
-                        shoutMessage(message)
-                    } finally {
-                        lock.lock()
-                        iter.remove()
-                    }
+                messagesToProcess.addAll(messageQueue)
+                messageQueue.clear()
+            }
+
+            // 在锁外处理消息
+            val currentTime = System.currentTimeMillis()
+            for (message in messagesToProcess) {
+                if (currentTime - message.timestamp > 10000) {
+                    if (message.sender.isOnline()) message.sender.sendLanguageMessage("message.shout.failed")
+                    continue
+                }
+                try {
+                    shoutMessage(message)
+                } catch (e: Exception) {
+                    if (message.sender.isOnline()) message.sender.sendLanguageMessage("message.shout.failed")
+                    e.printStackTrace()
                 }
             }
         }, 0, 50)

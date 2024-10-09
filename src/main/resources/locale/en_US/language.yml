@@ -5,7 +5,7 @@
 #
 
 # Configuration version, do not modify
-config-version: 1
+config-version: 2
 
 message:
   prefix: "&e&lServerShout &r&f> "
@@ -65,7 +65,8 @@ message:
     cooldown: "&cPlease wait &f{0} &cseconds before using again!"
     success: "&aMessage sent, remaining tokens: &f{1}"
     success-free: "&aMessage sent!"
-    timeout: "&cMessage sending timed out!"
+    sending: "&cThe previous message hasn't been sent yet, please try again later!"
+    failed: "&cMessage sending failed! Please try again later."
   join:
     expired: "&cThis information has expired!"
     illegal-server: "&cThis information is not applicable to the current server!"

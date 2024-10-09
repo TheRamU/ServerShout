@@ -5,7 +5,7 @@
 #
 
 # 配置版本，请勿修改
-config-version: 1
+config-version: 2
 
 message:
   prefix: "&e&lServerShout &r&f> "
@@ -65,7 +65,8 @@ message:
     cooldown: "&c请等待 &f{0} &c秒后再次使用!"
     success: "&a消息已发送，剩余代币数量为 &f{1}"
     success-free: "&a消息已发送!"
-    timeout: "&c消息发送超时!"
+    sending: "&c上一条消息还未发送完成，请稍后再试!"
+    failed: "&c消息发送失败!请稍后再试."
   join:
     expired: "&c该信息已过期!"
     illegal-server: "&c该信息不适用于当前服务器!"

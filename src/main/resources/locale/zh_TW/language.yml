@@ -5,14 +5,14 @@
 #
 
 # 配置版本，請勿修改
-config-version: 1
+config-version: 2
 
 message:
   prefix: "&e&lServerShout &r&f> "
   plugin:
     database-error: "&c資料庫出現錯誤! 請查看控制台."
     database-disabled: "&c資料庫未啟用，無法使用此功能!"
-  update-available: "&eServerShout &a有新版本可用! 你目前落後 &f{2} &a個版本. 下載地址: &b&n{3}&r"
+  update-available: "&eServerShout &a有新版本可用! 你當前落後 &f{2} &a個版本. 下載連結: &b&n{3}&r"
   command:
     unknown: "&c未知指令! 使用 &f/{0} help &c查看幫助."
     parameter-error: "&c參數錯誤! 使用 &f/{0} help &c查看幫助."
@@ -37,10 +37,10 @@ message:
       usage: "&e/{0} token delete <名稱> &7- &f刪除代幣"
       success: "&a代幣 &f{0} &a刪除成功!"
       failed: "&c代幣 &f{0} &c刪除失敗!"
-      confirm: "&c確定要刪除代幣 &f{1} &c嗎？這可能導致玩家數據丟失。若確定，請輸入 &f/{0} token delete {1} confirm"
+      confirm: "&c確定要刪除代幣 &f{1} &c嗎？這可能導致玩家資料丟失. 若確定，請輸入 &f/{0} token delete {1} confirm"
     token-list:
       usage: "&e/{0} token list &7- &f列出所有代幣"
-      list-header: "&a代幣列表："
+      list-header: "&a代幣清單："
       empty: "&c沒有添加任何代幣!"
     balance-get:
       usage: "&e/{0} balance get <玩家> <代幣> &7- &f查看玩家的代幣數量"
@@ -56,19 +56,20 @@ message:
       success: "&a已扣除玩家 &f{0} &a代幣 &f{1} &a數量 &f{2} &a個，當前總數為 &f{3}"
       not-enough: "&c玩家 &f{0} &c的代幣 &f{1} &c數量不足!"
     migrate:
-      confirm: "&c確定要遷移數據嗎？這可能導致現有數據受到舊版本數據影響。若確定，請輸入 &f/{0} migrate {1} confirm"
-      table-not-found: "&c舊版本數據表不存在!"
-      success: "&a數據遷移成功! 共遷移 &f{0} &a條數據."
+      confirm: "&c確定要遷移資料嗎？這可能導致現有資料受到舊版本資料影響. 若確定，請輸入 &f/{0} migrate {1} confirm"
+      table-not-found: "&c舊版本資料表不存在!"
+      success: "&a資料遷移成功!共遷移 &f{0} &a筆資料."
   shout:
-    empty: "&c消息不能為空!"
+    empty: "&c訊息不能為空!"
     token-not-enough: "&c你的代幣不足 &f{1} &c個!"
     cooldown: "&c請等待 &f{0} &c秒後再次使用!"
-    success: "&a消息已發送，剩餘代幣數量為 &f{1}"
-    success-free: "&a消息已發送!"
-    timeout: "&c消息發送超時!"
+    success: "&a訊息已發送，剩餘代幣數量為 &f{1}"
+    success-free: "&a訊息已發送!"
+    sending: "&c上一條訊息還未發送完成，請稍後再試!"
+    failed: "&c訊息發送失敗! 請稍後再試."
   join:
-    expired: "&c該信息已過期!"
-    illegal-server: "&c該信息不適用於當前伺服器!"
+    expired: "&c此資訊已過期!"
+    illegal-server: "&c此資訊不適用於當前伺服器!"
     same-server: "&c你已經在該伺服器中!"
   mute:
     selector: |
