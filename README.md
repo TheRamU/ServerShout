@@ -2,9 +2,9 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-ServerShout is a cross-server shout and invite plugin for Bukkit/BungeeCord/Velocity. It offers a wide range of configuration options and is compatible with PlaceholderAPI and LuckPerms plugins. It supports various message formats, allows for custom channels and commands, as well as message mute features.
+ServerShout is a cross-server shout and invite plugin for BungeeCord/Velocity/Bukkit. It features high performance and a high degree of customization, and it is compatible with PlaceholderAPI and LuckPerms. It supports various message formats, allows for custom channels and commands, as well as message mute features.
 
-For more detailed information, please visit our [post](https://www.spigotmc.org/resources/119362/).
+For more detailed information, please visit our [resource](https://www.spigotmc.org/resources/119362/).
 
 ## Build
 
