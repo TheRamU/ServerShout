@@ -309,9 +309,12 @@ class ShoutChannelService {
         var tokenCostName: String? = null
         var balanceAmount = 1L
 
+        val isEmpty = content.isEmpty()
+        val channelName = channel.name ?: ""
+
         // 只有数据库启用时才检查余额
         if (databaseSettings.enabled) {
-            val cost = if (content.isEmpty()) {
+            val cost = if (isEmpty) {
                 channel.tokenCostEmpty
             } else {
                 channel.tokenCostFull
@@ -339,13 +342,13 @@ class ShoutChannelService {
         val receiverServers = proxyServer.servers.filter {
             channel.receiverServerList.isAllowed(it.name) && shoutGlobalSettings.serverList.isAllowed(it.name)
         }
-        val format = if (content.isEmpty()) channel.formatEmpty else channel.formatFull
+        val format = if (isEmpty) channel.formatEmpty else channel.formatFull
         val formattedMessage = format.joinToString("\n&r")
 
         val replacedServerName = shoutGlobalSettings.serverMap[serverName] ?: serverName
         val replaceFun = fun(str: String) = str.replace("{server}", replacedServerName)
             .replace("{server_players}", server.players.size.toString())
-            .replace("{channel}", channel.name ?: "")
+            .replace("{channel}", channelName)
             .replaceLuckPermsPlaceholders(sender)
             .replace("{player}", sender.name)
             .replace("{message}", content)
@@ -354,7 +357,7 @@ class ShoutChannelService {
 
         receiverServers.filter { channel.localBroadcast || it.name != serverName }.forEach {
             for (player in it.players) {
-                if (mutePlayerMap[player.uuid]?.contains(sender.uuid) == true || muteChannelMap[player.uuid]?.contains(channel.name) == true) {
+                if (mutePlayerMap[player.uuid]?.contains(sender.uuid) == true || muteChannelMap[player.uuid]?.contains(channelName) == true) {
                     // 屏蔽消息
                     continue
                 }
@@ -374,6 +377,14 @@ class ShoutChannelService {
         historyMessages[channelMessage.id] = channelMessage
 
         api.sendUpdate(sender.name)
+
+        if (shoutGlobalSettings.logging) {
+            if (isEmpty) {
+                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-empty", channelName, sender.name)
+            } else {
+                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-full", channelName, sender.name, content)
+            }
+        }
     }
 
     private fun String.replaceLuckPermsPlaceholders(player: PlatformProxyPlayer): String {

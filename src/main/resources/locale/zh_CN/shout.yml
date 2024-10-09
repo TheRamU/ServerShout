@@ -5,10 +5,13 @@
 #
 
 # 配置版本，请勿修改
-config-version: 1
+config-version: 2
 
 # 全局配置
 global:
+  # 是否记录喊话日志
+  logging: true
+
   # 服务器名称映射
   server-map:
     'lobby': '大厅'

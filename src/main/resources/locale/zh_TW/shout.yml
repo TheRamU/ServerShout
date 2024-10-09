@@ -5,10 +5,13 @@
 #
 
 # 配置版本，請勿修改
-config-version: 1
+config-version: 2
 
 # 全域配置
 global:
+  # 是否記錄喊話日誌
+  logging: true
+
   # 伺服器名稱對應
   server-map:
     'lobby': '大廳'

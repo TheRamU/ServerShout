@@ -83,3 +83,6 @@ message:
     global: "&aAll channels have been muted! Rejoin the server to unmute."
     unmute: "&aAll mutes have been removed."
     self: "&cYou cannot mute yourself!"
+  logging:
+    format-empty: "&f[&b{0}&f] &e{1} &fsent an empty message."
+    format-full: "&f[&b{0}&f] {1}: {2}"

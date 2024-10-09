@@ -5,10 +5,13 @@
 #
 
 # Configuration version, do not modify
-config-version: 1
+config-version: 2
 
 # Global configuration
 global:
+  # Whether to log shout messages
+  logging: true
+
   # Server name mapping
   server-map:
     'lobby': 'Lobby'

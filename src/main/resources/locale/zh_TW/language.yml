@@ -83,3 +83,6 @@ message:
     global: "&a所有頻道已被屏蔽! 重新加入伺服器可取消屏蔽狀態."
     unmute: "&a已取消所有屏蔽."
     self: "&c你不能屏蔽自己!"
+  logging:
+    format-empty: "&f[&b{0}&f] &e{1} &f發送了一條空資訊."
+    format-full: "&f[&b{0}&f] {1}: {2}"
