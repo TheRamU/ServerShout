@@ -18,6 +18,11 @@ global:
     'survival': 'Survival'
     'bedwars': 'Bedwars'
 
+  # Token name mapping, for message format only
+  token-map:
+    'SHOUT': 'SHOUT TOKEN'
+    'INVITE': 'INVITE TOKEN'
+
   server-list:
     # List mode
     # whitelist: Whitelist mode, only allows servers in the list to send/receive messages

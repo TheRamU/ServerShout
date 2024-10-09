@@ -10,6 +10,7 @@ import java.io.Serializable
 data class ShoutGlobalSettings(
     val logging: Boolean,
     val serverMap: Map<String, String>,
+    val tokenMap: Map<String, String>,
     val serverList: ServerListSettings
 ) : Serializable {
 
@@ -20,6 +21,7 @@ data class ShoutGlobalSettings(
             return ShoutGlobalSettings(
                 logging = map["logging"] as Boolean,
                 serverMap = map["server-map"] as Map<String, String>,
+                tokenMap = map["token-map"] as Map<String, String>,
                 serverList = ServerListSettings.deserialize(map["server-list"] as Map<String, Any>)
             )
         }

@@ -322,18 +322,19 @@ class ShoutChannelService {
             val token = tokenService.getToken(cost.name)
             // 若 token 不存在则不检查余额
             if (token != null) {
+                val replacedTokenName = shoutGlobalSettings.tokenMap[token.name] ?: token.name
                 if (!balanceService.hasBalance(sender.name, token, cost.amount)) {
-                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", token.name, cost.amount)
+                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", replacedTokenName, cost.amount)
                     return
                 }
                 try {
                     balanceService.takeBalance(sender.name, token, cost.amount)
                 } catch (_: ServiceException) {
-                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", token.name, cost.amount)
+                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", replacedTokenName, cost.amount)
                     return
                 }
                 // 扣费成功
-                tokenCostName = token.name
+                tokenCostName = replacedTokenName
                 balanceAmount = balanceService.getBalanceAmount(sender.name, token)
             }
         }

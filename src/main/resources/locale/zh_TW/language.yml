@@ -61,9 +61,9 @@ message:
       success: "&a資料遷移成功!共遷移 &f{0} &a筆資料."
   shout:
     empty: "&c訊息不能為空!"
-    token-not-enough: "&c你的代幣不足 &f{1} &c個!"
+    token-not-enough: "&c你的 &f{0} 不足 &f{1} &c個!"
     cooldown: "&c請等待 &f{0} &c秒後再次使用!"
-    success: "&a訊息已發送，剩餘代幣數量為 &f{1}"
+    success: "&a訊息已發送，剩餘 &f{0} 數量為 &f{1}"
     success-free: "&a訊息已發送!"
     sending: "&c上一條訊息還未發送完成，請稍後再試!"
     failed: "&c訊息發送失敗! 請稍後再試."

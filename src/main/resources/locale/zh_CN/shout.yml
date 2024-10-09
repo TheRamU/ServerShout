@@ -18,6 +18,11 @@ global:
     'survival': '生存'
     'bedwars': '起床战争'
 
+  # 代币名称映射，仅用于消息格式
+  token-map:
+    'SHOUT': '喊话币'
+    'INVITE': '邀请币'
+
   # 服务器列表
   server-list:
     # 列表模式
