@@ -38,6 +38,7 @@ abstract class ServerShoutApi protected constructor() {
 
     open fun onDisable() {
         mySqlAccessor.close()
+        updateChecker.stopTimer()
     }
 
     open fun load() {

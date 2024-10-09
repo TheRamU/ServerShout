@@ -76,6 +76,10 @@ class UpdateChecker {
         }, 1000, 1000 * 60 * 60 * 8)
     }
 
+    fun stopTimer() {
+        timerTask?.cancel()
+    }
+
     fun removeNotified(uuid: UUID) {
         notifiedPlayers.remove(uuid)
     }

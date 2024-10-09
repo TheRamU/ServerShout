@@ -380,9 +380,9 @@ class ShoutChannelService {
 
         if (shoutGlobalSettings.logging) {
             if (isEmpty) {
-                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-empty", channelName, sender.name)
+                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-empty", channelName, replacedServerName, sender.name)
             } else {
-                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-full", channelName, sender.name, content)
+                platform.consoleCommandSender.sendLanguageMessage("message.logging.format-full", channelName, replacedServerName, sender.name, content)
             }
         }
     }
