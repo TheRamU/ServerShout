@@ -2,6 +2,7 @@ package io.github.theramu.servershout.bukkit.listener
 
 import io.github.theramu.servershout.bukkit.platform.player.BukkitPlatformPlayer
 import io.github.theramu.servershout.common.ServerShoutApi
+import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerJoinEvent
@@ -19,12 +20,17 @@ class PlayerEventListener : Listener {
 
     @EventHandler
     fun onPlayerJoin(event: PlayerJoinEvent) {
+        removePlayer(event.player)
         updateChecker.notifyUpdate(BukkitPlatformPlayer(event.player))
     }
 
     @EventHandler
     fun onPlayerQuit(event: PlayerQuitEvent) {
-        val uuid = event.player.uniqueId
+        removePlayer(event.player)
+    }
+
+    private fun removePlayer(player: Player) {
+        val uuid = player.uniqueId
         balanceService.removeCache(uuid)
         updateChecker.removeNotified(uuid)
     }

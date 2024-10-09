@@ -63,7 +63,7 @@ message:
     empty: "&c消息不能为空!"
     token-not-enough: "&c你的 &f{0} 不足 &f{1} &c个!"
     cooldown: "&c请等待 &f{0} &c秒后再次使用!"
-    success: "&a消息已发送，剩余 &f{0} 数量为 &f{1}"
+    success: "&a消息已发送，剩余 &f{0} &a数量为 &f{1}"
     success-free: "&a消息已发送!"
     sending: "&c上一条消息还未发送完成，请稍后再试!"
     failed: "&c消息发送失败!请稍后再试."

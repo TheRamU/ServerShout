@@ -63,7 +63,7 @@ message:
     empty: "&cMessage cannot be empty!"
     token-not-enough: "&cYour &f{0} are insufficient by &f{1}&c!"
     cooldown: "&cPlease wait &f{0} &cseconds before using again!"
-    success: "&aMessage sent, remaining &f{0} quantity is &f{1}"
+    success: "&aMessage sent, remaining &f{0} &aquantity is &f{1}"
     success-free: "&aMessage sent!"
     sending: "&cThe previous message hasn't been sent yet, please try again later!"
     failed: "&cMessage sending failed! Please try again later."
