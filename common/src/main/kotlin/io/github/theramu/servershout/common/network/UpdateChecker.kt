@@ -88,21 +88,27 @@ class UpdateChecker {
         URL(releaseUrl).openStream().use { stream ->
             val releaseArray = JsonParser().parse(InputStreamReader(stream)).asJsonArray
             val latestRelease = releaseArray.first().asJsonObject
-            var tag_name = latestRelease["tag_name"].asString
-            if (tag_name.startsWith("v")) {
-                tag_name = tag_name.substring(1)
+            var tagName = latestRelease["tag_name"].asString
+            if (tagName.startsWith("v")) {
+                tagName = tagName.substring(1)
             }
-            if (tag_name <= currentVersion) {
+            if (tagName <= currentVersion) {
                 return
             }
-            var behind = releaseArray.indexOfFirst { it.asJsonObject["tag_name"].asString == currentVersion }
+            var behind = releaseArray.indexOfFirst {
+                var releaseTag = it.asJsonObject["tag_name"].asString
+                if (releaseTag.startsWith("v")) {
+                    releaseTag = releaseTag.substring(1)
+                }
+                releaseTag == currentVersion
+            }
             if (behind == -1) {
                 behind = releaseArray.size()
             }
 
             val body = latestRelease["body"].asString
             downloadUrl = parseDownloadUrl(body)
-            latestVersion = tag_name
+            latestVersion = tagName
             versionBehind = behind
         }
     }
