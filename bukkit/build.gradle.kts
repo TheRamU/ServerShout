@@ -4,6 +4,7 @@ repositories {
 
 dependencies {
     implementation(project(":common"))
+    implementation(project(":folia"))
     compileOnly("org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.6")
 }
