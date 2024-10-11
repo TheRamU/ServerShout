@@ -39,7 +39,11 @@ class MySqlAccessor : Closeable {
 
         logger.info("Connecting to MySQL database...")
         val config = HikariConfig()
-        config.driverClassName = "com.mysql.cj.jdbc.Driver"
+        try {
+            config.driverClassName = "com.mysql.cj.jdbc.Driver"
+        } catch (e: Exception) {
+            logger.warn("Failed to load MySQL driver, try to load default driver.")
+        }
         config.jdbcUrl = "jdbc:mysql://${settings.host}:${settings.port}/${settings.database}?${settings.options}"
         config.username = settings.username
         config.password = settings.password
