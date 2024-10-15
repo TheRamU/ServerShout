@@ -7,7 +7,7 @@ import java.io.Serializable
  * @since 2024/08/19 02:56
  */
 data class DatabaseSettings(
-    val enabled: Boolean,
+    var enabled: Boolean,
     val host: String,
     val port: Int,
     val database: String,

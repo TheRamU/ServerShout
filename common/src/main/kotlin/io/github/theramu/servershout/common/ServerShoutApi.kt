@@ -43,7 +43,13 @@ abstract class ServerShoutApi protected constructor() {
 
     open fun load() {
         configLoader.loadConfig(platform is ProxyPlatform)
-        mySqlAccessor.connect()
+        try {
+            mySqlAccessor.connect()
+        } catch (e: Exception) {
+            configLoader.databaseSettings.enabled = false
+            logger.error("Failed to connect to MySQL database", e)
+            logger.warn("Database support has been disabled!")
+        }
         tokenService.updateCache()
         balanceService.clearCache()
     }
