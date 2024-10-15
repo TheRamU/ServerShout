@@ -42,7 +42,7 @@ class UpdateChecker {
             request()
             if (hasUpdate()) sendUpdateMessage(platform.consoleCommandSender)
         } catch (e: Exception) {
-            logger.warn("Failed to check for updates", e)
+            logger.warn("Failed to check for updates, please check your connection.")
         }
     }
 
