@@ -21,7 +21,7 @@ abstract class ServerShoutApi protected constructor() {
     abstract val platform: Platform
     abstract val logger: PlatformLogger
     abstract val dataFolder: File
-    val configLoader by lazy { ConfigLoader(dataFolder) }
+    val configLoader = ConfigLoader()
     val mySqlAccessor = MySqlAccessor()
     val tokenService = TokenService()
     val balanceService = BalanceService()

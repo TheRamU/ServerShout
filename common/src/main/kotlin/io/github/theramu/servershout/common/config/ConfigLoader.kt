@@ -12,9 +12,7 @@ import java.util.*
  * @author TheRamU
  * @since 2024/08/20 04:12
  */
-class ConfigLoader(
-    private val dataFolder: File
-) {
+class ConfigLoader {
     companion object {
         private val VERIFY_RULES = mapOf(
             "config.yml" to listOf(listOf(), listOf()),
@@ -28,6 +26,7 @@ class ConfigLoader(
 
     private val api get() = ServerShoutApi.api
     private val logger get() = api.logger
+    private val dataFolder get() = api.dataFolder
     private val localeLoader = LocaleLoader()
     lateinit var pluginConfig: YamlConfig private set
     lateinit var shoutConfig: YamlConfig private set
