@@ -13,6 +13,7 @@ import java.util.*
  * @since 2024/08/20 04:12
  */
 class ConfigLoader(
+    private val dataFolder: File
 ) {
     companion object {
         private val VERIFY_RULES = mapOf(
@@ -54,7 +55,6 @@ class ConfigLoader(
     }
 
     private fun getVerifiedConfig(fileName: String): YamlConfig {
-        val dataFolder = "./plugins/ServerShout"
         val file = File(dataFolder, fileName)
         if (!file.exists()) {
             localeLoader.saveLocaleResource(fileName)
