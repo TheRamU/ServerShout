@@ -18,7 +18,7 @@ class ConfigLoader {
             "config.yml" to listOf(listOf(), listOf()),
             "language.yml" to listOf(listOf(), listOf()),
             "shout.yml" to listOf(
-                listOf("global.server-map.{key}", "shouts.{key}"),
+                listOf("global.server-map.{key}", "channels.{key}"),
                 listOf()
             )
         )
