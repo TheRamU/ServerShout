@@ -61,7 +61,7 @@ message:
       success: "&a数据迁移成功! 共迁移 &f{0} &a条数据."
   shout:
     empty: "&c消息不能为空!"
-    token-not-enough: "&c你的 &f{0} 不足 &f{1} &c个!"
+    token-not-enough: "&c你的 &f{0} &c不足 &f{1} &c个!"
     cooldown: "&c请等待 &f{0} &c秒后再次使用!"
     success: "&a消息已发送，剩余 &f{0} &a数量为 &f{1}"
     success-free: "&a消息已发送!"

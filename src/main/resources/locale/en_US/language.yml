@@ -61,7 +61,7 @@ message:
       success: "&aData migration successful! A total of &f{0} &arecords migrated."
   shout:
     empty: "&cMessage cannot be empty!"
-    token-not-enough: "&cYour &f{0} are insufficient by &f{1}&c!"
+    token-not-enough: "&cYour &f{0} &care insufficient by &f{1}&c!"
     cooldown: "&cPlease wait &f{0} &cseconds before using again!"
     success: "&aMessage sent, remaining &f{0} &aquantity is &f{1}"
     success-free: "&aMessage sent!"

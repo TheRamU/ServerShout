@@ -314,25 +314,22 @@ class ShoutChannelService {
 
         // 只有数据库启用时才检查余额
         if (databaseSettings.enabled) {
-            val cost = if (isEmpty) {
-                channel.tokenCostEmpty
-            } else {
-                channel.tokenCostFull
-            }
+            val cost = if (isEmpty) channel.tokenCostEmpty else channel.tokenCostFull
             val token = tokenService.getToken(cost.name)
             // 若 token 不存在则不检查余额
             if (token != null) {
                 val replacedTokenName = shoutGlobalSettings.tokenMap[token.name] ?: token.name
-                if (!balanceService.hasBalance(sender.name, token, cost.amount)) {
-                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", replacedTokenName, cost.amount)
-                    return
+
+                // 扣费
+                if (cost.amount > 0) {
+                    try {
+                        balanceService.takeBalance(sender.name, token, cost.amount)
+                    } catch (_: ServiceException) {
+                        if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", replacedTokenName, cost.amount)
+                        return
+                    }
                 }
-                try {
-                    balanceService.takeBalance(sender.name, token, cost.amount)
-                } catch (_: ServiceException) {
-                    if (sender.isOnline()) sender.sendLanguageMessage("message.shout.token-not-enough", replacedTokenName, cost.amount)
-                    return
-                }
+
                 // 扣费成功
                 tokenCostName = replacedTokenName
                 balanceAmount = balanceService.getBalanceAmount(sender.name, token)
