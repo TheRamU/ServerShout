@@ -63,7 +63,7 @@ public class ServerShoutVelocityPlugin {
                 "org.jetbrains.kotlin:kotlin-stdlib:1.9.21",
                 "org.slf4j:slf4j-api:2.0.16",
                 "org.yaml:snakeyaml:2.0",
-                "com.mysql:mysql-connector-j:9.0.0",
+                "com.mysql:mysql-connector-j:9.2.0",
                 "com.zaxxer:HikariCP:5.1.0"
         };
         boolean loaded = new DependencyLoader(java.util.logging.Logger.getLogger("ServerShout")).loadDependencies(dependencies);

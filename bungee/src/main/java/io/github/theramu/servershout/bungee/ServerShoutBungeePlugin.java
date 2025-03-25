@@ -27,7 +27,7 @@ public class ServerShoutBungeePlugin extends Plugin {
                 "org.jetbrains.kotlin:kotlin-stdlib:1.9.21",
                 "org.slf4j:slf4j-api:2.0.16",
                 "org.yaml:snakeyaml:2.0",
-                "com.mysql:mysql-connector-j:9.0.0",
+                "com.mysql:mysql-connector-j:9.2.0",
                 "com.zaxxer:HikariCP:4.0.3",
                 "net.kyori:adventure-api:4.17.0",
                 "net.kyori:adventure-key:4.17.0",
