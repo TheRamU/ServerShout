@@ -94,7 +94,7 @@ class ShoutChannelService {
         val channel = channels.find {
             it.enabled &&
                     it.senderServerList.isAllowed(serverName) &&
-                    (it.permission.isEmpty() || player.hasPermission(it.permission)) &&
+                    it.hasPermission(player) &&
                     it.chatPrefix.isNotEmpty() &&
                     message.startsWith(it.chatPrefix.trimEnd())
         } ?: return false
@@ -114,7 +114,13 @@ class ShoutChannelService {
 
         val content = message.removePrefix(channel.chatPrefix.trimEnd()).trimStart()
 
-        if (content.isEmpty() && !channel.allowEmptyMessage) {
+        val isEmpty = if (channel.hasColorPermission(player)) {
+            ColorUtil.stripColor(content).isEmpty()
+        } else {
+            content.isEmpty()
+        }
+
+        if (isEmpty && !channel.allowEmptyMessage) {
             player.sendLanguageMessage("message.shout.empty")
             return true
         }
@@ -304,12 +310,20 @@ class ShoutChannelService {
         val sender = channelMessage.sender
         val server = channelMessage.server
         val channel = channelMessage.channel
-        val content = channelMessage.content
+        var content = channelMessage.content
 
         var tokenCostName: String? = null
         var balanceAmount = 1L
 
-        val isEmpty = content.isEmpty()
+        val isEmpty: Boolean
+        if (channel.hasColorPermission(sender)) {
+            isEmpty = ColorUtil.stripColor(content).isEmpty()
+            content = ColorUtil.translateColor(content)
+        } else {
+            isEmpty = content.isEmpty()
+            content = ColorUtil.translateColorBack(content)
+        }
+
         val channelName = channel.name ?: ""
 
         // 只有数据库启用时才检查余额

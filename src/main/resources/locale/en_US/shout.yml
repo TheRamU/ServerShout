@@ -5,7 +5,7 @@
 #
 
 # Configuration version, do not modify
-config-version: 2
+config-version: 3
 
 # Global configuration
 global:
@@ -35,11 +35,17 @@ global:
 # Shout channel configuration, you can add multiple custom channels
 channels:
   SHOUT_CHANNEL:
+    # Whether to enable this channel
     enabled: true
+
     # Chat message prefix
     chat-prefix: '!'
+
     # Permission required to send messages
     permission: ''
+
+    # Permission to use color codes
+    color-permission: 'servershout.shout.color'
 
     # Allow sending empty messages, i.e., the player only sends '!'
     allow-empty-message: false
@@ -91,6 +97,7 @@ channels:
     enabled: true
     chat-prefix: '/invite '
     permission: ''
+    color-permission: 'servershout.shout.color'
     allow-empty-message: true
     token-cost-full: INVITE:2
     token-cost-empty: INVITE:1

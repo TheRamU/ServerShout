@@ -5,7 +5,7 @@
 #
 
 # 配置版本，请勿修改
-config-version: 2
+config-version: 3
 
 # 全局配置
 global:
@@ -36,11 +36,17 @@ global:
 # 喊话频道配置，可以添加多个自定义频道
 channels:
   SHOUT_CHANNEL:
+    # 是否启用频道
     enabled: true
+
     # 消息前缀
     chat-prefix: '!'
+
     # 发送消息所需的权限
     permission: ''
+
+    # 允许使用颜色代码的权限
+    color-permission: 'servershout.shout.color'
 
     # 是否允许发送空消息，即玩家只发送 '!'
     allow-empty-message: false
@@ -92,6 +98,7 @@ channels:
     enabled: true
     chat-prefix: '/invite '
     permission: ''
+    color-permission: 'servershout.shout.color'
     allow-empty-message: true
     token-cost-full: INVITE:2
     token-cost-empty: INVITE:1
