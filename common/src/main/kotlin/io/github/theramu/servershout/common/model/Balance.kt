@@ -1,6 +1,5 @@
-package io.github.theramu.servershout.common.balance
+package io.github.theramu.servershout.common.model
 
-import io.github.theramu.servershout.common.token.Token
 import java.sql.ResultSet
 import java.util.UUID
 

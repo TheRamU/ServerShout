@@ -3,8 +3,8 @@ package io.github.theramu.servershout.common.database
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import io.github.theramu.servershout.common.ServerShoutApi
-import io.github.theramu.servershout.common.balance.Balance
-import io.github.theramu.servershout.common.token.Token
+import io.github.theramu.servershout.common.model.Balance
+import io.github.theramu.servershout.common.model.Token
 import io.github.theramu.servershout.common.util.UuidUtil
 import java.io.Closeable
 import java.sql.SQLException

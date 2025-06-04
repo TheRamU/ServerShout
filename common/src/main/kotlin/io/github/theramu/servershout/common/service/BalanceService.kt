@@ -1,9 +1,10 @@
-package io.github.theramu.servershout.common.balance
+package io.github.theramu.servershout.common.service
 
 import io.github.theramu.servershout.common.ServerShoutApi
+import io.github.theramu.servershout.common.model.Balance
 import io.github.theramu.servershout.common.cache.Cache
 import io.github.theramu.servershout.common.exception.ServiceException
-import io.github.theramu.servershout.common.token.Token
+import io.github.theramu.servershout.common.model.Token
 import io.github.theramu.servershout.common.util.UuidUtil
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap

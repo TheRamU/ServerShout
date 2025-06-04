@@ -1,4 +1,4 @@
-package io.github.theramu.servershout.common.shoutchannel
+package io.github.theramu.servershout.common.service
 
 import io.github.theramu.servershout.common.ServerShoutApi
 import io.github.theramu.servershout.common.ServerShoutProxyApi
@@ -6,6 +6,8 @@ import io.github.theramu.servershout.common.exception.ServiceException
 import io.github.theramu.servershout.common.platform.ProxyPlatform
 import io.github.theramu.servershout.common.platform.player.PlatformProxyPlayer
 import io.github.theramu.servershout.common.platform.scheduler.PlatformScheduledTask
+import io.github.theramu.servershout.common.model.ChannelMessage
+import io.github.theramu.servershout.common.model.ShoutChannel
 import io.github.theramu.servershout.common.util.ColorUtil
 import io.github.theramu.servershout.common.util.UuidUtil
 import net.kyori.adventure.text.Component

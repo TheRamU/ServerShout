@@ -1,6 +1,6 @@
 package io.github.theramu.servershout.common
 
-import io.github.theramu.servershout.common.balance.BalanceService
+import io.github.theramu.servershout.common.service.BalanceService
 import io.github.theramu.servershout.common.command.CommandManager
 import io.github.theramu.servershout.common.config.ConfigLoader
 import io.github.theramu.servershout.common.database.MySqlAccessor
@@ -8,7 +8,7 @@ import io.github.theramu.servershout.common.network.UpdateChecker
 import io.github.theramu.servershout.common.platform.Platform
 import io.github.theramu.servershout.common.platform.ProxyPlatform
 import io.github.theramu.servershout.common.platform.logging.PlatformLogger
-import io.github.theramu.servershout.common.token.TokenService
+import io.github.theramu.servershout.common.service.TokenService
 import java.io.File
 import java.util.*
 

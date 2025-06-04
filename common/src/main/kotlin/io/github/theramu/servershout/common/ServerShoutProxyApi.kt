@@ -1,7 +1,7 @@
 package io.github.theramu.servershout.common
 
-import io.github.theramu.servershout.common.shoutchannel.ShoutChannel
-import io.github.theramu.servershout.common.shoutchannel.ShoutChannelService
+import io.github.theramu.servershout.common.model.ShoutChannel
+import io.github.theramu.servershout.common.service.ShoutChannelService
 import java.util.*
 
 /**

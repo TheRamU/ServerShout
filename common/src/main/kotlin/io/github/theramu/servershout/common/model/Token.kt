@@ -1,4 +1,4 @@
-package io.github.theramu.servershout.common.token
+package io.github.theramu.servershout.common.model
 
 import java.sql.ResultSet
 

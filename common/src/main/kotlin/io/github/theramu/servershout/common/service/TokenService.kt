@@ -1,7 +1,8 @@
-package io.github.theramu.servershout.common.token
+package io.github.theramu.servershout.common.service
 
 import io.github.theramu.servershout.common.ServerShoutApi
 import io.github.theramu.servershout.common.exception.ServiceException
+import io.github.theramu.servershout.common.model.Token
 
 /**
  * @author TheRamU

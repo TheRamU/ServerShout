@@ -1,4 +1,4 @@
-package io.github.theramu.servershout.common.shoutchannel
+package io.github.theramu.servershout.common.model
 
 import io.github.theramu.servershout.common.platform.player.PlatformProxyPlayer
 import io.github.theramu.servershout.common.platform.server.PlatformServer
