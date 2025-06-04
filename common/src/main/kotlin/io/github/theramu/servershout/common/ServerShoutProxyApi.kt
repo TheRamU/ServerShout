@@ -2,6 +2,7 @@ package io.github.theramu.servershout.common
 
 import io.github.theramu.servershout.common.shoutchannel.ShoutChannel
 import io.github.theramu.servershout.common.shoutchannel.ShoutChannelService
+import java.util.*
 
 /**
  * @author TheRamU
@@ -13,6 +14,11 @@ abstract class ServerShoutProxyApi protected constructor() : ServerShoutApi() {
     override fun load() {
         super.load()
         loadShoutChannels()
+    }
+
+    override fun removeCache(uuid: UUID) {
+        super.removeCache(uuid)
+        shoutChannelService.removePlayer(uuid)
     }
 
     private fun loadShoutChannels() {

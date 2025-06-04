@@ -6,6 +6,7 @@ import io.github.theramu.servershout.common.ServerShoutProxyApi
 import net.md_5.bungee.api.connection.ProxiedPlayer
 import net.md_5.bungee.api.event.PlayerDisconnectEvent
 import net.md_5.bungee.api.event.ChatEvent
+import net.md_5.bungee.api.event.PostLoginEvent
 import net.md_5.bungee.api.event.ServerSwitchEvent
 import net.md_5.bungee.api.plugin.Listener
 import net.md_5.bungee.event.EventHandler
@@ -18,7 +19,6 @@ import net.md_5.bungee.event.EventPriority
 class PlayerEventListener : Listener {
 
     private val api get() = ServerShoutApi.api as ServerShoutProxyApi
-    private val balanceService get() = api.balanceService
     private val updateChecker get() = api.updateChecker
     private val shoutChannelService get() = api.shoutChannelService
 
@@ -31,15 +31,18 @@ class PlayerEventListener : Listener {
     }
 
     @EventHandler
+    fun onPostLogin(event: PostLoginEvent) {
+        api.removeCache(event.player.uniqueId)
+        updateChecker.notifyUpdate(BungeePlatformPlayer(event.player))
+    }
+
+    @EventHandler
     fun onServerSwitch(event: ServerSwitchEvent) {
         updateChecker.notifyUpdate(BungeePlatformPlayer(event.player))
     }
 
     @EventHandler
     fun onPlayerDisconnect(event: PlayerDisconnectEvent) {
-        val uuid = event.player.uniqueId
-        balanceService.removeCache(uuid)
-        updateChecker.removeNotified(uuid)
-        shoutChannelService.removePlayer(uuid)
+        api.removeCache(event.player.uniqueId)
     }
 }

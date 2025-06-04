@@ -19,7 +19,6 @@ class PlayerEventListener {
 
     private val api get() = ServerShoutApi.api as ServerShoutVelocityApi
     private val scheduler get() = api.platform.scheduler
-    private val balanceService get() = api.balanceService
     private val updateChecker get() = api.updateChecker
     private val shoutChannelService get() = api.shoutChannelService
 
@@ -42,8 +41,11 @@ class PlayerEventListener {
 
     @Subscribe
     fun onServerSwitch(event: ServerConnectedEvent) {
-        if (!event.previousServer.isPresent) return
         val player = event.player
+        api.removeCache(player.uniqueId)
+
+        // 首次连接服务器
+        if (!event.previousServer.isPresent) return
         scheduler.run({
             if (!player.isActive || !player.currentServer.isPresent) return@run
             updateChecker.notifyUpdate(VelocityPlatformPlayer(player))
@@ -52,10 +54,7 @@ class PlayerEventListener {
 
     @Subscribe(order = PostOrder.LAST)
     fun onPlayerDisconnect(event: DisconnectEvent) {
-        val uuid = event.player.uniqueId
-        balanceService.removeCache(uuid)
-        updateChecker.removeNotified(uuid)
-        shoutChannelService.removePlayer(uuid)
+        api.removeCache(event.player.uniqueId)
     }
 
     private fun handleChat(player: Player, message: String): Boolean {

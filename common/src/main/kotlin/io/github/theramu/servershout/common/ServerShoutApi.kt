@@ -10,6 +10,7 @@ import io.github.theramu.servershout.common.platform.ProxyPlatform
 import io.github.theramu.servershout.common.platform.logging.PlatformLogger
 import io.github.theramu.servershout.common.token.TokenService
 import java.io.File
+import java.util.*
 
 /**
  * @author TheRamU
@@ -51,7 +52,16 @@ abstract class ServerShoutApi protected constructor() {
             logger.warn("Database support has been disabled!")
         }
         tokenService.updateCache()
+        clearCache()
+    }
+
+    open fun clearCache() {
         balanceService.clearCache()
+    }
+
+    open fun removeCache(uuid: UUID) {
+        balanceService.removeCache(uuid)
+        updateChecker.removeNotified(uuid)
     }
 
     abstract fun sendUpdate(playerName: String)
