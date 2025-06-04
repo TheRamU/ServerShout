@@ -3,6 +3,7 @@ package io.github.theramu.servershout.bukkit.platform.player
 import io.github.theramu.servershout.common.platform.player.PlatformPlayer
 import net.kyori.adventure.text.Component
 import net.kyori.adventure.text.serializer.json.JSONComponentSerializer
+import net.md_5.bungee.chat.ComponentSerializer
 import org.bukkit.ChatColor
 import org.bukkit.entity.Player
 import java.util.*
@@ -23,7 +24,7 @@ class BukkitPlatformPlayer(
     }
 
     override fun sendMessage(component: Component) {
-        handle.sendRawMessage(JSONComponentSerializer.json().serialize(component))
+        handle.spigot().sendMessage(*ComponentSerializer.parse(JSONComponentSerializer.json().serialize(component)))
     }
 
     override fun hasPermission(permission: String) = handle.hasPermission(permission)

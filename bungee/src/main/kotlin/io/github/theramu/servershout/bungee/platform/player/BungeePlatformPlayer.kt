@@ -36,7 +36,7 @@ class BungeePlatformPlayer : PlatformProxyPlayer {
     }
 
     override fun sendMessage(component: Component) {
-        ComponentSerializer.parse(GsonComponentSerializer.gson().serialize(component)).forEach { handle.sendMessage(it) }
+        handle.sendMessage(*ComponentSerializer.parse(GsonComponentSerializer.gson().serialize(component)))
     }
 
     override fun connect(server: PlatformServer) {
